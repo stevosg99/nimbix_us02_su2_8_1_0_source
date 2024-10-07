@@ -8,8 +8,8 @@ wkdir=/home/nimbix/data/SU2/SU2
 cd $wkdir
 
 # Set the initial environmental variables
-export MPICC=/home/nimbix/data/JARVICE/openmpi/bin/mpicc
-export MPICXX=/home/nimbix/data/JARVICE/openmpi/bin/mpicxx
+export MPICC=/opt/JARVICE/openmpi/bin/mpicc
+export MPICXX=/opt/JARVICE/openmpi/bin/mpicxx
 export CC=$MPICC
 export CXX=$MPICXX
 export CXXFLAGS="-O2 -funroll-loops -march=native -mtune=native"
