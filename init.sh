@@ -4,10 +4,10 @@ sleep 10
 
 # Compile SU2 on the main node in the session
 echo "Compiling SU2"
-cd /data/SU2/
-bash /data/SU2/compile_SU2.sh
+cd /home/nimbix/data/SU2/
+bash /home/nimbix/data/SU2/compile_SU2.sh
 
-echo "Changing to /data directory to begin data processing."
+echo "Changing to /home/nimbix/data directory to begin data processing."
 
 # Get bash filename from session initialization
 while [[ -n "$1" ]]; do
