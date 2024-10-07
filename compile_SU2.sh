@@ -1,15 +1,15 @@
 #! /bin/bash
 
 # Ensure the current working directory
-initdir=/data/SU2/
+initdir=/home/nimbix/data/SU2/
 cd $initdir
 git clone --branch v8.1.0 https://github.com/su2code/SU2.git
-wkdir=/data/SU2/SU2
+wkdir=/home/nimbix/data/SU2/SU2
 cd $wkdir
 
 # Set the initial environmental variables
-export MPICC=/data/JARVICE/openmpi/bin/mpicc
-export MPICXX=/data/JARVICE/openmpi/bin/mpicxx
+export MPICC=/home/nimbix/data/JARVICE/openmpi/bin/mpicc
+export MPICXX=/home/nimbix/data/JARVICE/openmpi/bin/mpicxx
 export CC=$MPICC
 export CXX=$MPICXX
 export CXXFLAGS="-O2 -funroll-loops -march=native -mtune=native"
@@ -34,9 +34,9 @@ while [ "$build_counter" -le 3 ]; do
 	./meson.py build $flags --prefix=$initdir/install | tee -a build_log.txt
 
 	# Set environmental variables from meson build
-	export SU2_DATA=/data/SU2/
-	export SU2_HOME=/data/SU2/SU2
-	export SU2_RUN=/data/SU2/SU2/bin
+	export SU2_DATA=/home/nimbix/data/SU2/
+	export SU2_HOME=/home/nimbix/data/SU2/SU2
+	export SU2_RUN=/home/nimbix/data/SU2/SU2/bin
 	export PATH=$PATH:$SU2_RUN
 	export PYTHONPATH=$PYTHONPATH:$SU2_RUN
 	# Set environmental variable to allow multi-node use
@@ -64,4 +64,4 @@ elif [ $build_counter -eq 10 ]; then
 fi
 
 # Record a ready status
-touch /data/node_ready_status.txt
+touch /home/nimbix/data/node_ready_status.txt
