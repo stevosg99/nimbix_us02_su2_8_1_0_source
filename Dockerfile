@@ -37,7 +37,7 @@ EXPOSE 22
 WORKDIR /home/nimbix/data/
 
 # Create a directory to compile SU2
-RUN mkdir /home/nimbix/data/SU2/
+RUN mkdir -p /home/nimbix/data/SU2/
 
 # Add all source files to the newly created directory
 ADD init.sh /home/nimbix/data/
