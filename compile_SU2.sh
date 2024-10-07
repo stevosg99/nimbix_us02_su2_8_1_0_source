@@ -1,15 +1,15 @@
 #! /bin/bash
 
 # Ensure the current working directory
-initdir=/opt/SU2/
+initdir=/tmp/SU2/
 cd $initdir
 git clone --branch v8.1.0 https://github.com/su2code/SU2.git
-wkdir=/opt/SU2/SU2
+wkdir=/tmp/SU2/SU2
 cd $wkdir
 
 # Set the initial environmental variables
-export MPICC=/opt/JARVICE/openmpi/bin/mpicc
-export MPICXX=/opt/JARVICE/openmpi/bin/mpicxx
+export MPICC=/tmp/JARVICE/openmpi/bin/mpicc
+export MPICXX=/tmp/JARVICE/openmpi/bin/mpicxx
 export CC=$MPICC
 export CXX=$MPICXX
 export CXXFLAGS="-O2 -funroll-loops -march=native -mtune=native"
@@ -34,9 +34,9 @@ while [ "$build_counter" -le 3 ]; do
 	./meson.py build $flags --prefix=$initdir/install | tee -a build_log.txt
 
 	# Set environmental variables from meson build
-	export SU2_DATA=/opt/SU2/
-	export SU2_HOME=/opt/SU2/SU2
-	export SU2_RUN=/opt/SU2/SU2/bin
+	export SU2_DATA=/tmp/SU2/
+	export SU2_HOME=/tmp/SU2/SU2
+	export SU2_RUN=/tmp/SU2/SU2/bin
 	export PATH=$PATH:$SU2_RUN
 	export PYTHONPATH=$PYTHONPATH:$SU2_RUN
 	# Set environmental variable to allow multi-node use
