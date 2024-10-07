@@ -4,7 +4,7 @@ sleep 10
 
 # Compile SU2 on the main node in the session
 echo "Compiling SU2"
-cd /home/nimbix/data/SU2/
+cd /home/nimbix/data/
 bash /home/nimbix/data/compile_SU2.sh
 
 echo "Changing to /home/nimbix/data directory to begin data processing."
